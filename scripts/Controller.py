@@ -3,22 +3,28 @@
 @website	http://0rleans.com/NightSkyLED
 '''
 
-import math, sys, timeit
-import Patterns
+import math, sys
+from threading import Timer
+from Patterns import Patterns
+from LED import LED
 from Helpers import States, LEDpattern
 from Utils import Utils
 
 class Controller (object):
+	TIMERINTERVAL = 1
+
 	def __init__ (self, LEDcount):
 		self.LEDcount = LEDcount
 		self.LEDs = []
 		for i in xrange(LEDcount):
-			self.LEDs.append(i)
-		self.patterns = Patterns.Patterns(self.LEDs)
+			self.LEDs.append(LED())
+		self.patterns = Patterns(self.LEDs)
 
-		t = timeit.Timer("self.patterns.update")
-		# t.timeit(1)
+		self.timerFunc()
 
+	def timerFunc (self):
+		self.patterns.update()
+		Timer(Controller.TIMERINTERVAL, self.timerFunc).start()
 
 def main ():
 	controller = Controller(50)

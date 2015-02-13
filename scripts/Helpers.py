@@ -18,9 +18,9 @@ class TimeRange (object):
 class HSL(object):
 	def __init__ (self, hsl):
 		if isinstance(hsl, list):
-			self.h = hsl[0] if hsl[0] is None else 0
-			self.s = hsl[1] if hsl[1] is None else 1
-			self.l = hsl[2] if hsl[2] is None else 1
+			self.h = 0 if hsl[0] is None else hsl[0]
+			self.s = 0.5 if hsl[1] is None else hsl[1]
+			self.l = 0 if hsl[2] is None else hsl[2]
 	def toRGB ():
 		if s == 0.0:
 			return [self.l, self.l, self.l]
@@ -67,6 +67,8 @@ class HSL(object):
 			return [self.h / right.h, self.s / right.s, self.l / right.l]
 		else:
 			return [self.h / right, self.s / right, self.l / right]
+	def __str__(self):
+		return "HSL(%s, %s, %s)" % (self.h, self.s, self.l)
 
 class States (object):
 	OFF = LEDpattern([HSL([0, 1, 0])], [], [], 0, 0, 0, [])
