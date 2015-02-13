@@ -54,9 +54,9 @@ class HSL(object):
 			return [self.h - right, self.s - right, self.l - right]
 	def __mul__ (self, right):
 		if isinstance(right, list):
-			return [self.h * right.h, self.s * right.s, self.l * right.l]
+			return HSL([self.h * right.h, self.s * right.s, self.l * right.l])
 		else:
-			return [self.h * right, self.s * right, self.l * right]
+			return HSL([self.h * right, self.s * right, self.l * right])
 	def __truediv__ (self, right):
 		if isinstance(right, list):
 			return [self.h / right.h, self.s / right.s, self.l / right.l]

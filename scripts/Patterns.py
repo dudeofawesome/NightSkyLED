@@ -10,28 +10,15 @@ class Patterns (object):
 		self.transitionStateTime = 30
 		self.LEDcount = len(LEDs)
 
-
-		States.OFF = LEDpattern([HSL([0, 1, 0])], [], [], 0, 0, 0, [])
-		States.NIGHT = LEDpattern([HSL([264, 0, 0.2])], [HSL([0, 0, 0.4])], [HSL([60, 1, .72])], 0, 100000, 5, [])
-		States.DAY = LEDpattern([HSL([205, 1, 0.7])], [], [], 0, 0, 10, [])
-		States.SUNRISE = LEDpattern([HSL([13, 1, 0.6]), HSL([193, 1, 0.81])], [], [], 0, 0, 20, [])
-		States.SUNSET = LEDpattern([HSL([13, 1, 0.6]), HSL([273, 1, 0.7])], [], [], 0, 0, 20, [])
-		States.RAIN = LEDpattern([HSL([226, 0.58, 0.48]), HSL([226, 0.66, 0.76])], [], [], 0, 0, 5, [])
-		States.THUNDERSTORM = LEDpattern([HSL([270, 0.1, 0.3])], [HSL([180, 1, 1])], [], 100, 0, 5, [])
-		States.ALARM = LEDpattern([HSL([0, 1, 0.5])], [], [], 0, 0, 0, [])
-		States.DISCO = LEDpattern([HSL([0, 1, 0.5]), HSL([30, 1, 0.5]), HSL([60, 1, 0.5]), HSL([90, 1, 0.5]), HSL([120, 1, 0.5]), HSL([150, 1, 0.5]), HSL([180, 1, 0.5]), HSL([210, 1, 0.5]), HSL([240, 1, 0.5]), HSL([270, 1, 0.5]), HSL([300, 1, 0.5]), HSL([330, 1, 0.5])], [], [], 0, 0, 3, [])
-
-		print "HSL(226, 0.58, 0.48) == " + str(HSL([226, 0.58, 0.48]))
-
-		# States.OFF.noiseMasks = []
-		# States.NIGHT.noiseMasks = [Utils.fillArrayRand(self.LEDcount, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5)]
-		# States.DAY.noiseMasks = []
-		# States.SUNRISE.noiseMasks = []
-		# States.SUNSET.noiseMasks = []
-		# States.RAIN.noiseMasks = [Utils.fillArrayRand(self.LEDcount, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5)]
-		# States.THUNDERSTORM.noiseMasks = [Utils.fillArrayRand(self.LEDcount, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5)]
-		# States.ALARM.noiseMasks = []
-		# States.DISCO.noiseMasks = []
+		States.OFF.noiseMasks = []
+		States.NIGHT.noiseMasks = [Utils.fillArrayRand(self.LEDcount, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5)]
+		States.DAY.noiseMasks = []
+		States.SUNRISE.noiseMasks = []
+		States.SUNSET.noiseMasks = []
+		States.RAIN.noiseMasks = [Utils.fillArrayRand(self.LEDcount, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5)]
+		States.THUNDERSTORM.noiseMasks = [Utils.fillArrayRand(self.LEDcount, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5), Utils.fillArrayRand(self.LEDcount - 1, 0.5, 1.5)]
+		States.ALARM.noiseMasks = []
+		States.DISCO.noiseMasks = []
 
 		self.timeRanges = [TimeRange(States.NIGHT, [19, 5]), TimeRange(States.SUNRISE, [5, 5.30]), TimeRange(States.DAY, [5.30, 18.30]), TimeRange(States.SUNSET, [18.30, 19]), TimeRange(States.ALARM, [9, 9.10])]
 
